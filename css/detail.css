@@ -1,0 +1,151 @@
+.detail {
+  background: #fff;
+}
+.detail .history-panel .history-list {
+  display: flex;
+  align-items: center;
+  padding: 20px 0px;
+}
+.detail .history-panel .history-list > li {
+  display: inline-block;
+}
+.detail .history-panel .history-list > li a {
+  color: #999;
+}
+.detail .history-panel .history-list > li.home-btn {
+  margin-right: 10px;
+}
+.detail .history-panel .history-list > li.active a {
+  color: #259b24;
+}
+.detail .info-panel .entry {
+  margin-top: 20px;
+  padding: 0px 20px;
+  overflow: hidden;
+}
+.detail .info-panel .entry img {
+  float: left;
+  width: 235px;
+  height: 180px;
+}
+.detail .info-panel .entry .text-info {
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 0px 10px 40px;
+}
+.detail .info-panel .entry .text-info .row + .row {
+  margin-top: 12px;
+}
+.detail .info-panel .entry .text-info .title {
+  font-size: 20px;
+  color: #333;
+}
+.detail .info-panel .entry .text-info .desc {
+  color: #259b24;
+  min-height: 44px;
+}
+.detail .info-panel .entry .text-info .strong {
+  color: #259b24;
+}
+.detail .info-panel .entry .text-info .item-list > li {
+  display: inline-block;
+}
+.detail .info-panel .entry .text-info .item-list > li + li {
+  margin-left: 40px;
+}
+.detail .info-panel .entry + li {
+  border-top: 1px solid #ddd;
+}
+.detail .tab-panel {
+  margin-top: 20px;
+  min-height: 650px;
+}
+.detail .tab-panel .tab-list {
+  border-bottom: 1px solid #ddd;
+}
+.detail .tab-panel .tab-list > li {
+  display: inline-block;
+  padding: 10px 20px;
+}
+.detail .tab-panel .tab-list > li.active {
+  color: #259b24;
+  border-bottom: 1px solid #259b24;
+}
+.detail .tab-panel .tab-content {
+  padding: 20px;
+  font-size: 16px;
+  line-height: 40px;
+}
+.detail .tab-panel .tab-content .file-list {
+  padding-top: 20px;
+}
+.detail .tab-panel .tab-content .file-list > li {
+  float: left;
+  display: inline-block;
+  line-height: 24px;
+  text-align: center;
+  max-width: 200px;
+  font-size: 14px;
+  margin: 10px;
+}
+.detail .tab-panel .tab-content .time-filter select {
+  width: 150px;
+  height: 30px;
+  padding: 0px 10px;
+  border-radius: 3px;
+}
+.detail .tab-panel .tab-content .time-filter .month-list {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333;
+  line-height: normal;
+  overflow: hidden;
+}
+.detail .tab-panel .tab-content .time-filter .month-list > li {
+  float: left;
+  position: relative;
+  display: inline-block;
+  padding: 0px 10px;
+}
+.detail .tab-panel .tab-content .time-filter .month-list > li + li:before {
+  position: absolute;
+  content: '';
+  width: 1px;
+  height: 12px;
+  background: #333;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  margin: auto;
+}
+.detail .tab-panel .tab-content .time-filter .month-list > li.active {
+  color: #259b24;
+}
+.detail .tab-panel .tab-content .entry-list {
+  padding: 30px 0px;
+}
+.detail .tab-panel .tab-content .entry-list > li {
+  display: flex;
+  line-height: normal;
+}
+.detail .tab-panel .tab-content .entry-list > li .icon {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: #259b24;
+  border-radius: 50%;
+}
+.detail .tab-panel .tab-content .entry-list > li .time {
+  padding: 0px 10px;
+}
+.detail .tab-panel .tab-content .entry-list > li + li {
+  margin-top: 20px;
+}
+.detail .tab-panel .tab-content.img-content {
+  padding: 20px;
+}
+.detail .tab-panel .tab-content.img-content img {
+  max-width: 100%;
+}

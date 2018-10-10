@@ -1,0 +1,103 @@
+.home {
+  background: url("../img/home/home-bg.jpg") no-repeat;
+  background-size: cover;
+  text-align: center;
+}
+.home .page-content {
+  padding-top: 10%;
+}
+.home .logo-icon {
+  display: inline-block;
+  background: url("../img/home/logo-icon.png");
+  width: 167px;
+  height: 74px;
+  background-size: 100% 100%;
+  position: absolute;
+  top: 50px;
+  left: 60px;
+}
+.home .login-btn {
+  display: inline-block;
+  background: url("../img/home/login-btn.png") no-repeat;
+  width: 160px;
+  height: 53px;
+  background-size: 100% 100%;
+  position: absolute;
+  top: 50px;
+  right: 50px;
+}
+.home .slogan-img {
+  margin: 0px auto;
+  width: 50%;
+  height: auto;
+  max-width: 1000px;
+}
+.home .link-list {
+  margin-top: 20px;
+  display: inline-block;
+}
+.home .link-list > li {
+  display: inline-block;
+}
+.home .link-list > li a {
+  display: inline-block;
+  width: 192px;
+  height: 54px;
+}
+.home .link-list > li .show-btn {
+  background: url("../img/home/show-btn.png") no-repeat;
+  background-size: 100% 100%;
+}
+.home .link-list > li .pavilion-btn {
+  background: url("../img/home/pavilion-btn.png") no-repeat;
+  background-size: 100% 100%;
+}
+.home .link-list > li .host-btn {
+  background: url("../img/home/host-btn.png") no-repeat;
+  background-size: 100% 100%;
+}
+.home .link-list > li .flaunt-btn {
+  background: url("../img/home/flaunt-btn.png") no-repeat;
+  background-size: 100% 100%;
+}
+.home .link-list > li + li {
+  margin-left: 20px;
+}
+.home .search-box {
+  margin-top: 40px;
+  display: inline-block;
+  overflow: hidden;
+}
+.home .search-box input {
+  float: left;
+  width: 300px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px rgba(255, 255, 255, 0.8);
+  outline: none;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  padding: 0px 10px;
+  font-size: 16px;
+  color: #666;
+}
+.home .search-box .btn {
+  float: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 80px;
+  line-height: 50px;
+  text-align: center;
+  background: #fff;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+.home .search-box .icon {
+  display: inline-block;
+  background: url("../img/home/search-icon.png") no-repeat;
+  width: 30px;
+  height: 30px;
+  background-size: 100% 100%;
+}

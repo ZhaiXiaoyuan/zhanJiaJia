@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/detail.css">
+</head>
+<body class="detail">
+    <div class="header">
+        <span class="icon logo-text">优+会展</span>
+        <div class="handle">
+            <a class="cm-btn btn" href="index.html">首页</a>
+            <span class="cm-btn btn">登录</span>
+        </div>
+    </div>
+    <div class="content cm-hidden" id="show-content">
+        <div class="history-panel">
+            <div class="cm-container">
+                <ul class="history-list">
+                   <!-- <li class="cm-btn home-btn">
+                        <a href="index.html">
+                            <i class="icon home-icon"></i>
+                        </a>
+                    </li>
+                    <li class="cm-btn">
+                        <a href="">
+                            展会
+                            <i class="icon right-icon"></i>
+                        </a>
+                    </li>
+                    <li class="cm-btn">
+                        <a href="">
+                            石材
+                            <i class="icon right-icon"></i>
+                        </a>
+                    </li>
+                    <li  class="cm-btn active">
+                        <a href="">
+                            意大利维罗纳国际石材展览会
+                        </a>
+                    </li>-->
+                </ul>
+            </div>
+        </div>
+        <div class="info-panel">
+            <div class="cm-container">
+             <!--   <div class="entry">
+                    <img src="https://gss2.bdstatic.com/-fo3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=39cf61b64b2309f7e76faa144a356bce/9e3df8dcd100baa1bb9433994a10b912c8fc2e53.jpg">
+                    <div class="text-info">
+                        <p class="row title">意大利维罗纳国际石材展览会</p>
+                        <p class="row desc">年成交量数亿美元的展览盛会，不能比拟的贸易效果，是国内家具行业企业的最佳选择！</p>
+                        <ul class="row item-list">
+                            <li>举办地点：<span class="strong">意大利</span></li>
+                            <li>行业：<span class="strong">石材</span></li>
+                            <li>周期：一年一届</li>
+                        </ul>
+                        <p class="row">会展时间：2018年8月26日-29日</p>
+                        <p class="row">官网：<a href="http://www.MARMOMACC.com">http://www.MARMOMACC.com</a></p>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+        <div class="tab-panel">
+            <div class="cm-container">
+                <div class="container-hd">
+                    <ul class="tab-list">
+                        <li class="cm-btn active" tab="time">重要时间节点</li>
+                        <li class="cm-btn" tab="know">审图/报电需知</li>
+                        <li  class="cm-btn" tab="manual">展馆技术手册</li>
+                    </ul>
+                </div>
+                <div class="container-bd">
+                    <div class="tab-content" id="time">
+
+                    </div>
+                    <div class="tab-content cm-hidden" id="know">
+
+                    </div>
+                    <div class="tab-content cm-hidden" id="manual">
+                        <ul class="file-list">
+                           <!-- <li>
+                                <a href="">
+                                    <i class="icon file-icon"></i>
+                                    <p>文件名</p>
+                                </a>
+                            </li>-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content cm-hidden" id="pavilion-content">
+        <div class="history-panel">
+            <div class="cm-container">
+                <ul class="history-list">
+
+                </ul>
+            </div>
+        </div>
+        <div class="info-panel">
+            <div class="cm-container">
+             <!--   <div class="entry">
+                    <img src="https://gss2.bdstatic.com/-fo3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=39cf61b64b2309f7e76faa144a356bce/9e3df8dcd100baa1bb9433994a10b912c8fc2e53.jpg">
+                    <div class="text-info">
+                        <p class="row title">中国香港会议展览中心</p>
+                        <p class="row">Hong Kong Convention and Exhibitiong Centre</p>
+                        <p class="row">官网：<a href="http://www.MARMOMACC.com">http://www.MARMOMACC.com</a></p>
+                        <p class="row">展馆总面积：30000㎡</p>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+        <div class="tab-panel">
+            <div class="cm-container">
+                <div class="container-hd">
+                    <ul class="tab-list">
+                        <li class="cm-btn active" tab="introduce">展馆介绍</li>
+                        <li class="cm-btn" tab="shows">展会项目</li>
+                        <li  class="cm-btn" tab="gallery">展馆平面图</li>
+                    </ul>
+                </div>
+                <div class="container-bd">
+                    <div class="tab-content" id="introduce">
+                    </div>
+                    <div class="tab-content cm-hidden" id="shows">
+                        <div class="time-filter">
+                            <span>年份：</span>
+                            <select class="select-year" onchange="selectYear()">
+                                <!--<option value="2018">2018</option>-->
+                            </select>
+                            <ul class="month-list">
+                               <!-- <li>1月</li>-->
+                            </ul>
+                        </div>
+                        <div class="entry-list">
+                           <!-- <li>
+                                <a href="">
+                                    <i class="icon"></i>
+                                    <span class="time">01-21</span>
+                                    <span class="title">* 01-21  国际潮流服饰香港站展会</span>
+                                </a>
+                            </li>-->
+                        </div>
+                    </div>
+                    <div class="tab-content img-content cm-hidden" id="gallery">
+                        <ul class="file-list">
+                            <!-- <li>
+                                 <a href="">
+                                     <i class="icon file-icon"></i>
+                                     <p>文件名</p>
+                                 </a>
+                             </li>-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content cm-hidden" id="host-content">
+        <div class="history-panel">
+            <div class="cm-container">
+                <ul class="history-list">
+                    <li class="cm-btn home-btn">
+                        <a href="">
+                            <i class="icon home-icon"></i>
+                        </a>
+                    </li>
+                    <li class="cm-btn">
+                        <a href="">
+                            主办
+                            <i class="icon right-icon"></i>
+                        </a>
+                    </li>
+                    <li class="cm-btn">
+                        <a href="">
+                            德国
+                            <i class="icon right-icon"></i>
+                        </a>
+                    </li>
+                    <li  class="cm-btn active">
+                        <a href="">
+                            德国慕尼黑国际展览集团
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="info-panel">
+            <div class="cm-container">
+                <div class="entry">
+                    <img src="https://gss2.bdstatic.com/-fo3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=39cf61b64b2309f7e76faa144a356bce/9e3df8dcd100baa1bb9433994a10b912c8fc2e53.jpg">
+                    <div class="text-info">
+                        <p class="row title">德国慕尼黑国际展览集团</p>
+                        <p class="row">Messe Munchen International</p>
+                        <p class="row">地址：德国慕尼黑市杜塞尔多夫大道299号首层</p>
+                        <p class="row">官网：<a href="http://www.MARMOMACC.com">http://www.MARMOMACC.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-panel">
+            <div class="cm-container">
+                <div class="container-hd">
+                    <ul class="tab-list">
+                        <li class="cm-btn active" tab="hostIntroduce">展馆介绍</li>
+                        <li class="cm-btn" tab="hostShows">展会项目</li>
+                    </ul>
+                </div>
+                <div class="container-bd">
+                    <div class="tab-content" id="hostIntroduce">
+                    </div>
+                    <div class="tab-content cm-hidden" id="hostShows">
+                        <div class="time-filter">
+                            <select class="select-year" onchange="selectYear()">
+
+                            </select>
+                            <ul class="month-list">
+                               <!-- <li class="active">1月</li>-->
+                            </ul>
+                        </div>
+                        <div class="entry-list">
+                            <li>
+                                <a href="">
+                                    <i class="icon"></i>
+                                    <span class="time">01-21</span>
+                                    <span class="title">* 01-21  国际潮流服饰香港站展会</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <i class="icon"></i>
+                                    <span class="time">01-21</span>
+                                    <span class="title">* 01-21  国际潮流服饰香港站展会</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <i class="icon"></i>
+                                    <span class="time">01-21</span>
+                                    <span class="title">* 01-21  国际潮流服饰香港站展会</span>
+                                </a>
+                            </li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content cm-hidden" id="flaunt-content">
+        <div class="history-panel">
+            <div class="cm-container">
+                <ul class="history-list">
+                    <li class="cm-btn home-btn">
+                        <a href="">
+                            <i class="icon home-icon"></i>
+                        </a>
+                    </li>
+                    <li class="cm-btn">
+                        <a href="">
+                            主办
+                            <i class="icon right-icon"></i>
+                        </a>
+                    </li>
+                    <li class="cm-btn">
+                        <a href="">
+                            德国
+                            <i class="icon right-icon"></i>
+                        </a>
+                    </li>
+                    <li  class="cm-btn active">
+                        <a href="">
+                            德国慕尼黑国际展览集团
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="info-panel">
+            <div class="cm-container">
+                <div class="entry">
+                    <img src="https://gss2.bdstatic.com/-fo3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=39cf61b64b2309f7e76faa144a356bce/9e3df8dcd100baa1bb9433994a10b912c8fc2e53.jpg">
+                    <div class="text-info">
+                        <p class="row title">德国慕尼黑国际展览集团</p>
+                        <p class="row">Messe Munchen International</p>
+                        <p class="row">地址：德国慕尼黑市杜塞尔多夫大道299号首层</p>
+                        <p class="row">官网：<a href="http://www.MARMOMACC.com">http://www.MARMOMACC.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-panel">
+            <div class="cm-container">
+                <div class="container-hd">
+                    <ul class="tab-list">
+                        <li class="cm-btn active" tab="flauntIntroduce">展馆介绍</li>
+                        <li class="cm-btn" tab="flauntShows">展会项目</li>
+                    </ul>
+                </div>
+                <div class="container-bd">
+                    <div class="tab-content cm-hidden" id="flauntIntroduce">
+                        <p>慕尼黑国际博览集团成立于1964年，是世界10大展览公司之一，每年在全球范围内举办近40个博览会，涉及行业包括资本货物、高科技和消费品，并在各个领域都拥有专业超群的品牌，即资本货物类的工程机械、物流...</p>                    </div>
+                    <div class="tab-content cm-hidden" id="flauntShows">
+                        <div class="time-filter">
+                            <select>
+                                <option value="volvo">2018</option>
+                                <option value="saab">2019</option>
+                                <option value="opel">2020</option>
+                                <option value="audi">2025</option>
+                            </select>
+                            <ul class="month-list">
+                                <li class="active">1月</li>
+                                <li>2月</li>
+                                <li>3月</li>
+                                <li>4月</li>
+                                <li>5月</li>
+                                <li>6月</li>
+                                <li>7月</li>
+                                <li>8月</li>
+                                <li>9月</li>
+                                <li>10月</li>
+                                <li>11月</li>
+                                <li>12月</li>
+                            </ul>
+                        </div>
+                        <div class="entry-list">
+                            <li>
+                                <a href="">
+                                    <i class="icon"></i>
+                                    <span class="time">01-21</span>
+                                    <span class="title">* 01-21  国际潮流服饰香港站展会</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <i class="icon"></i>
+                                    <span class="time">01-21</span>
+                                    <span class="title">* 01-21  国际潮流服饰香港站展会</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <i class="icon"></i>
+                                    <span class="time">01-21</span>
+                                    <span class="title">* 01-21  国际潮流服饰香港站展会</span>
+                                </a>
+                            </li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        广州市优+互联网会展有限公司和/或其子公司版权所有 2001-2020 粤ICP备11026771号-2
+    </div>
+</body>
+<script>
+    function deviceType(options) {
+        options={};
+        var isMobile=false;
+        if ((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
+            options.mobile&&options.mobile();
+            isMobile=true;
+        }else{
+            options.pc&&options.pc();
+        }
+        return isMobile;
+    };
+    if(deviceType()){
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    isIOS = navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        var clientHeight = docEl.clientHeight;
+                        if (!clientWidth) return;
+                        if(clientWidth >= 750 ){
+                            clientWidth = 750
+                            doc.body.style.width = 750 + 'px'
+                        }else{
+                            doc.body.style.width = clientWidth + 'px'
+                        }
+                        doc.body.style.height = clientHeight + 'px'
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                        docEl.dataset.percent = 100 * (clientWidth / 750)
+                    };
+            recalc();
+            doc.documentElement.classList.add('iosx' + win.devicePixelRatio)
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+        })(document, window);
+    }
+</script>
+<script type="text/javascript" src="lib/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/service/utils.js"></script>
+<script type="text/javascript" src="js/service/api.js"></script>
+<script type="text/javascript" src="js/controller/detail.js"></script>
+</html>

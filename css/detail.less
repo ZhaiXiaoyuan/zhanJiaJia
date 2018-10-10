@@ -1,0 +1,162 @@
+.detail{
+  background: #fff;
+  .history-panel{
+    .history-list{
+      display: flex;
+      align-items: center;
+      padding: 20px 0px;
+      >li{
+        display: inline-block;
+        a{
+          color: #999;
+        }
+        &.home-btn{
+          margin-right: 10px;
+        }
+        &.active{
+          a{
+            color: rgb(37, 155, 36);
+          }
+        }
+      }
+    }
+  }
+  .info-panel{
+    .entry{
+      margin-top: 20px;
+      padding: 0px 20px;
+      overflow: hidden;
+      img{
+        float: left;
+        width: 235px;
+        height: 180px;
+      }
+      .text-info{
+        min-height: 180px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding:10px 0px 10px 40px;
+        .row{
+          &+.row{
+            margin-top: 12px;
+          }
+        }
+        .title{
+          font-size: 20px;
+          color: #333;
+        }
+        .desc{
+          color: rgb(37, 155, 36);
+          min-height: 44px;
+        }
+        .strong{
+          color: rgb(37, 155, 36);
+        }
+        .item-list{
+          >li{
+            display: inline-block;
+            &+li{
+              margin-left: 40px;
+            }
+          }
+        }
+      }
+      &+li{
+        border-top: 1px solid #ddd;
+      }
+    }
+  }
+  .tab-panel{
+    margin-top: 20px;
+    min-height: 650px;
+    .tab-list{
+      border-bottom: 1px solid #ddd;
+      >li{
+        display: inline-block;
+        padding: 10px 20px;
+        &.active{
+          color: rgb(37, 155, 36);
+          border-bottom: 1px solid rgb(37, 155, 36);
+        }
+      }
+    }
+    .tab-content{
+      padding: 20px;
+      font-size: 16px;
+      line-height: 40px;
+      .file-list{
+        padding-top: 20px;
+        >li{
+          float: left;
+          display: inline-block;
+          line-height: 24px;
+          text-align: center;
+          max-width: 200px;
+          font-size: 14px;
+          margin: 10px;
+        }
+      }
+      .time-filter{
+        select{
+          width: 150px;height: 30px;
+          padding: 0px 10px;
+          border-radius: 3px;
+        }
+        .month-list{
+          margin-top: 10px;
+          font-size: 14px;
+          color: #333;
+          line-height: normal;
+          overflow: hidden;
+          >li{
+            float: left;
+            position: relative;
+            display: inline-block;
+            padding: 0px 10px;
+            &+li:before{
+              position: absolute;
+              content: '';
+              width: 1px;
+              height: 12px;
+              background: #333;
+              top:0px;
+              left: 0px;
+              bottom: 0px;
+              margin: auto;
+            }
+            &.active{
+              color: rgb(37, 155, 36);
+            }
+          }
+        }
+      }
+      .entry-list{
+        padding: 30px 0px;
+        >li{
+          display: flex;
+          line-height: normal;
+          .icon{
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: rgb(37, 155, 36);
+            border-radius: 50%;
+          }
+          .time{
+            padding: 0px 10px;
+          }
+          &+li{
+            margin-top: 20px;
+          }
+        }
+      }
+      &.img-content{
+        padding: 20px;
+        img{
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/search.css">
+</head>
+<body class="search" id="search" onclick="showRightMenu(null,event)">
+    <div class="header">
+        <span class="icon logo-text">优+会展</span>
+        <div class="handle">
+            <a class="cm-btn btn" href="index.html">首页</a>
+            <a class="cm-btn btn" href="/zppbiz">登录</a>
+        </div>
+    </div>
+    <div class="content">
+        <div class="search-panel">
+            <div class="row">
+                <img class="logo" src="img/common/logo-icon.jpeg">
+                <div class="input-box">
+                    <div class="wrapper">
+                        <i class="icon search-icon"  onclick="search()"></i>
+                        <input type="text" id="keyword" placeholder="请输入关键词">
+                        <span class="cm-btn btn" onclick="search()">查询</span>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-block">
+                <div class="cm-container">
+                    <ul class="tab-list">
+                        <li class="cm-btn active" tab="show" onclick="setPageType('show');">展会</li>
+                        <li class="cm-btn"  tab="pavilion"  onclick="setPageType('pavilion');">展馆</li>
+                        <li class="cm-btn" tab="host"  onclick="setPageType('host');">主办</li>
+                       <!-- <li class="cm-btn">招展</li>-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="filter-panel">
+            <div class="cm-container">
+                <div class="container-hd">
+                    <span class="title">筛选：</span>
+                    <ul class="selected-list" id="filter-list">
+                       <!-- <li>陶瓷<i class="cm-btn icon del-icon"></i></li>-->
+                    </ul>
+                    <div class="info">
+                        当前共&nbsp;<span class="strong" id="total">0</span>&nbsp;条<span class="page-name"></span>信息
+                    </div>
+                </div>
+                <div class="container-bd">
+                    <div class="row cm-hidden" id="industry-row">
+                        <div class="label">按行业：</div>
+                        <div class="value">
+                            <ul class="item-list" id="industry-list">
+                               <!-- <li class="cm-btn">陶瓷</li>-->
+                            </ul>
+                        </div>
+                        <div class="cm-btn expand" onclick="toggleRow('industry-row')">
+                            <span>展开</span>
+                            <i class="icon down-icon"></i>
+                        </div>
+                    </div>
+                    <div class="row" id="country-row">
+                        <div class="label">按国家/地区：</div>
+                        <div class="value">
+                            <ul class="sub-filter" id="country-filer">
+                                <li class="cm-btn all-btn" onclick="selectCountry('')">全部</li>
+                               <!-- <li class="cm-btn">A</li>-->
+
+                            </ul>
+                            <ul class="item-list" id="country-list">
+                                <!--<li class="cm-btn">中国</li>-->
+                            </ul>
+                        </div>
+                        <div class="cm-btn expand"  onclick="toggleRow('country-row')">
+                            <span>展开</span>
+                            <i class="icon down-icon"></i>
+                        </div>
+                    </div>
+                    <div class="row cm-hidden" id="year-row">
+                        <div class="label">按年份：</div>
+                        <div class="value">
+                            <ul class="sub-filter" id="year-list">
+                                <li class="cm-btn all-btn" onclick="selectYear('')">全部</li>
+                                <!--<li class="cm-btn">2018</li>-->
+                            </ul>
+                            <ul class="item-list" id="month-list">
+                               <!-- <li>1月</li>
+                                <li>2月</li>-->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="entry-panel">
+            <div class="cm-container">
+                <div class="container-hd">
+                    <span class="title">全部<span class="page-name"></span></span>
+                    <div class="info">
+                        <span class="page-info"><span class="strong cur-page">0</span>/<span class="total-page"></span></span>
+                        <span class="cm-btn btn last-btn" onclick="pageSwitch('minus')"><i class="icon left-icon"></i></span>
+                        <span class="cm-btn btn next-btn" onclick="pageSwitch('add')"><i class="icon right-icon"></i></span>
+                    </div>
+                </div>
+                <div class="container-bd">
+                    <ul class="entry-list">
+                       <!-- <li>
+                            <img src="https://gss2.bdstatic.com/-fo3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=39cf61b64b2309f7e76faa144a356bce/9e3df8dcd100baa1bb9433994a10b912c8fc2e53.jpg">
+                            <div class="text-info">
+                                <p class="row title">意大利维罗纳国际石材展览会</p>
+                                <p class="row desc">年成交量数亿美元的展览盛会，不能比拟的贸易效果，是国内家具行业企业的最佳选择！</p>
+                                <ul class="row item-list">
+                                    <li>举办地点：<span class="strong">意大利</span></li>
+                                    <li>行业：<span class="strong">石材</span></li>
+                                    <li>周期：一年一届</li>
+                                </ul>
+                                <p class="row">会展时间：2018年8月26日-29日</p>
+                            </div>
+                        </li>-->
+                    </ul>
+                    <div class="loading-tips cm-hidden">暂无数据</div>
+                </div>
+                <div class="container-ft" id="pager-container">
+                    <div id="pager"class="pager"></div>
+                </div>
+            </div>
+        </div>
+        <div class="cm-right-menu-panel">
+            <div class="cm-btn item" onclick="showRightMenu('.phone-info',event)">
+                <i class="icon phone-icon"></i>
+                <p>电话</p>
+            </div>
+            <div class="cm-btn item"  onclick="showRightMenu('.wechat-info',event)">
+                <i class="icon wechat-icon"></i>
+                <p>微信</p>
+            </div>
+            <div class="cm-btn item" onclick="utils.goAnchor(event,'search')">
+                <i class="icon to-top-icon"></i>
+                <p>TOP</p>
+            </div>
+            <div class="detail-block">
+                <div class="phone-info cm-hidden">
+                    <p>热线电话</p>
+                    <p id="tel"></p>
+                    <p>工作时间：<span id="work-time"></span></p>
+                </div>
+                <div class="wechat-info cm-hidden">
+                    <img src="img/common/qrcode.png">
+                    <p>扫码关注</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        广州市优+互联网会展有限公司和/或其子公司版权所有 2001-2020 粤ICP备11026771号-2
+    </div>
+</body>
+<script>
+    function deviceType(options) {
+        options={};
+        var isMobile=false;
+        if ((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
+            options.mobile&&options.mobile();
+            isMobile=true;
+        }else{
+            options.pc&&options.pc();
+        }
+        return isMobile;
+    };
+    if(deviceType()){
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    isIOS = navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        var clientHeight = docEl.clientHeight;
+                        if (!clientWidth) return;
+                        if(clientWidth >= 750 ){
+                            clientWidth = 750
+                            doc.body.style.width = 750 + 'px'
+                        }else{
+                            doc.body.style.width = clientWidth + 'px'
+                        }
+                        doc.body.style.height = clientHeight + 'px'
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                        docEl.dataset.percent = 100 * (clientWidth / 750)
+                    };
+            recalc();
+            doc.documentElement.classList.add('iosx' + win.devicePixelRatio)
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+        })(document, window);
+    }
+</script>
+<script type="text/javascript" src="lib/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="lib/jqpaginator.min.js"></script>
+<script type="text/javascript" src="lib/pinyinjs-master/dict/pinyin_dict_firstletter.js"></script>
+<script type="text/javascript" src="lib/pinyinjs-master/pinyinUtil.js"></script>
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/service/utils.js"></script>
+<script type="text/javascript" src="js/service/api.js"></script>
+<script type="text/javascript" src="js/controller/search.js"></script>
+</html>
