@@ -250,5 +250,8 @@
             }
             return isMobile;
         },
+        eellipsis:function (options) {
+
+        },
     }
 })();

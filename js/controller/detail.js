@@ -91,7 +91,7 @@ $(function () {
                 //
                 $historyList.html(' <li class="cm-btn home-btn"><a href="index.html"> <i class="icon home-icon"></i> </a> </li>' +
                     '<li class="cm-btn"> <a href="search.html?pageType=pavilion">展馆<i class="icon right-icon"></i> </a> </li>' +
-                    '<li class="cm-btn"> <a href="search.html?pageType=pavilion&industry=country-'+detail.area+'">'+detail.areaname+' <i class="icon right-icon"></i> </a> </li>' +
+                    '<li class="cm-btn"> <a href="search.html?pageType=pavilion&country='+detail.areaid+'">'+detail.areaname+' <i class="icon right-icon"></i> </a> </li>' +
                     '<li  class="cm-btn active"> <a href="#">'+detail.pavchnname+' </a> </li>');
             }
         });
@@ -217,6 +217,8 @@ $(function () {
             getPavilionShowList();
         }else if(pageType=='host'){
             getHostShowList();
+        }else if(pageType=='flaunt'){
+            getFlauntShowList();
         }
     }
 
@@ -238,8 +240,8 @@ $(function () {
                     '</div> </div>');
                 //
                 $historyList.html(' <li class="cm-btn home-btn"><a href="index.html"> <i class="icon home-icon"></i> </a> </li>' +
-                    '<li class="cm-btn"> <a href="search.html?pageType=host">展馆<i class="icon right-icon"></i> </a> </li>' +
-                    '<li class="cm-btn"> <a href="search.html?pageType=host&industry=country-'+detail.area+'">'+detail.areaname+' <i class="icon right-icon"></i> </a> </li>' +
+                    '<li class="cm-btn"> <a href="search.html?pageType=host">主办<i class="icon right-icon"></i> </a> </li>' +
+                    '<li class="cm-btn"> <a href="search.html?pageType=host&country='+detail.areaid+'">'+detail.areaname+' <i class="icon right-icon"></i> </a> </li>' +
                     '<li  class="cm-btn active"> <a href="#">'+detail.name+' </a> </li>');
             }
         });
@@ -267,6 +269,56 @@ $(function () {
                     listDomStr+='<li><a href="detail.html?pageType=show&id='+item.id+'" target="_blank"> <i class="icon"></i> <span class="time"></span> <span class="title">'+item.name+'</span> </a> </li>';
                 });
                 $('#hostShows .entry-list').html(listDomStr);
+            }
+        });
+    }
+
+    /**
+     * 招展详情模块
+     */
+    function getFlauntDetail() {
+        api.getFlauntDetail({timestamp:utils.genTimestamp(),id:id},function (data) {
+            if(data.status=='success'){
+                detail=data.message;
+                console.log('detail:',detail);
+                $content.find('.info-panel .cm-container').html('<div class="entry">' +
+                    '<img src="'+detail.pic1+'">' +
+                    '<div class="text-info">' +
+                    '<p class="row title">'+detail.name+'</p>' +
+                    '<p class="row">'+detail.nameen+'</p>' +
+                    '<p class="row">地址：'+detail.address+'</p>' +
+                    '<p class="row">官网：<a href="http://'+detail.website+'">'+detail.website+'</a></p>' +
+                    '</div> </div>');
+                //
+                $historyList.html(' <li class="cm-btn home-btn"><a href="index.html"> <i class="icon home-icon"></i> </a> </li>' +
+                    '<li class="cm-btn"> <a href="search.html?pageType=flaunt">招展<i class="icon right-icon"></i> </a> </li>' +
+                    '<li class="cm-btn"> <a href="search.html?pageType=flaunt&country='+detail.areaid+'">'+detail.areaname+' <i class="icon right-icon"></i> </a> </li>' +
+                    '<li  class="cm-btn active"> <a href="#">'+detail.name+' </a> </li>');
+            }
+        });
+    }
+    function getFlauntIntroduce() {
+        api.getFlauntIntroduce({timestamp:utils.genTimestamp(),id:id},function (data) {
+            if(data.status=='success'){
+                data=data.message;
+                $('#flauntIntroduce').html(data);
+            }
+        });
+    }
+    function getFlauntShowList() {
+        var params={
+            timestamp:utils.genTimestamp(),
+            id:id,
+            month:selectedYear&&selectedMonth?selectedYear.value+'-'+selectedMonth.value:null,
+        }
+        api.getFlauntShowList(params,function (data) {
+            if(data.status=='success'){
+                var list=data.message;
+                var listDomStr='';
+                list.forEach(function (item,i) {
+                    listDomStr+='<li><a href="detail.html?pageType=flaunt&id='+item.id+'" target="_blank"> <i class="icon"></i> <span class="time"></span> <span class="title">'+item.name+'</span> </a> </li>';
+                });
+                $('#flauntShows .entry-list').html(listDomStr);
             }
         });
     }
@@ -301,6 +353,10 @@ $(function () {
         getHostDetail();
         getHostIntroduce();
         getHostShowList();
+    }else if(pageType=='flaunt'){
+        getFlauntDetail();
+        getFlauntIntroduce();
+        getFlauntShowList();
     }
 
 })

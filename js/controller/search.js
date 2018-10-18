@@ -84,13 +84,17 @@ $(function () {
             }
             if(data.AreaCountry){
                 data.AreaCountry.forEach(function (item,i) {
-                    countryList.push({
+                    var tem={
                         id:item.id,
                         type:'country',
                         label:item.name,
                         value:item.id,
                         letter:pinyinUtil.getFirstLetter(item.name.substring(0,1))
-                    })
+                    }
+                    if(pRequest.country&&pRequest.country==tem.id){
+                        selectedCountry=tem;
+                    }
+                    countryList.push(tem)
                 });
                 curCountryList=countryList;
                 renderRegionList(curCountryList);
@@ -458,7 +462,7 @@ $(function () {
                             '<div class="text-info">' +
                             '<p class="row title">'+item.pavchnname+'</p>' +
                             '<p class="row desc">'+item.pavenname+'</p>' +
-                            '<p class="row">'+item.content+'</p>' +
+                            '<p class="row '+(item.content.length>190?'para':'')+'">'+item.content+'</p>' +
                             '</div>' +
                             '</a> </li>';
                     });
@@ -494,7 +498,43 @@ $(function () {
                             '<div class="text-info">' +
                             '<p class="row title">'+item.name+'</p>' +
                             '<p class="row desc">'+item.nameen+'</p>' +
-                            '<p class="row">'+item.remark+'</p>' +
+                            '<p class="row '+(item.remark.length>190?'para':'')+'">'+item.remark+'</p>' +
+                            '</div>' +
+                            '</a> </li>';
+                    });
+                    $entryList.html(listDomStr);
+                    //
+                    if(entryList.length>0){
+                        $loadingTips.addClass('cm-hidden');
+                    }else{
+                        $loadingTips.removeClass('cm-hidden');
+                    }
+                    //
+                    pager=data.pager;
+                    initPaper();
+                }
+                console.log('list:',data);
+            });
+        }else if(pageType=='flaunt'){
+            params={
+                timestamp:utils.genTimestamp(),
+                areaid:selectedCountry?selectedCountry.value:null,
+                keyword:keyword,
+                'pager.pageSize':pager.pageSize,
+                'pager.pageNumber':pager.pageNumber
+            }
+            api.getFlauntList(params,function (data) {
+                if(data.status=='success'){
+                    data=data.message;
+                    entryList=data.result;
+                    var listDomStr='';
+                    entryList.forEach(function (item,i) {
+                        listDomStr+=' <li><a href="detail.html?pageType=flaunt&id='+item.id+'">' +
+                            '<img src="'+item.pic1+'">' +
+                            '<div class="text-info">' +
+                            '<p class="row title">'+item.name+'</p>' +
+                            '<p class="row desc">'+item.nameen+'</p>' +
+                            '<p class="row '+(item.remark.length>190?'para':'')+'">'+item.remark+'</p>' +
                             '</div>' +
                             '</a> </li>';
                     });

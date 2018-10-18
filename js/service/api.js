@@ -133,5 +133,29 @@ $(function () {
                 callback&&callback(resp);
             });
         },
+        //招展信息分页查询
+        getFlauntList:function (data,callback) {
+            sendRequest(basicUrl+'agent/info/srch','POST',data,function (resp) {
+                callback&&callback(resp);
+            });
+        },
+        //招展信息单个查看
+        getFlauntDetail:function (data,callback) {
+            sendRequest(basicUrl+'agent/info/view','POST',data,function (resp) {
+                callback&&callback(resp);
+            });
+        },
+        //招展介绍信息查看
+        getFlauntIntroduce:function (data,callback) {
+            sendRequest(basicUrl+'agent/info/vint','POST',data,function (resp) {
+                callback&&callback(resp);
+            });
+        },
+        //招展已办展会查询
+        getFlauntShowList:function (data,callback) {
+            sendRequest(basicUrl+'agent/info/gdones','POST',data,function (resp) {
+                callback&&callback(resp);
+            });
+        },
     }
 })
