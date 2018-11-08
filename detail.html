@@ -11,10 +11,31 @@
 </head>
 <body class="detail">
     <div class="header">
-        <span class="icon logo-text">优+会展</span>
+        <span class="icon logo-text">展++会展</span>
         <div class="handle">
             <a class="cm-btn btn" href="index.html">首页</a>
-            <span class="cm-btn btn">登录</span>
+            <a class="cm-btn btn" href="http://www.zjaja.cn/zppbiz/adlogin">登录</a>
+        </div>
+    </div>
+    <div class="cm-search-panel">
+        <div class="row">
+            <div class="input-box">
+                <div class="wrapper">
+                    <i class="icon search-icon"  onclick="search()"></i>
+                    <input type="text" id="keyword" placeholder="请输入关键词">
+                    <span class="cm-btn btn" onclick="search()">查询</span>
+                </div>
+            </div>
+        </div>
+        <div class="nav-block">
+            <div class="cm-container">
+                <ul class="tab-list">
+                    <li class="cm-btn" tab="show" onclick="setPageType('show');">展会</li>
+                    <li class="cm-btn"  tab="pavilion"  onclick="setPageType('pavilion');">展馆</li>
+                    <li class="cm-btn" tab="host"  onclick="setPageType('host');">主办</li>
+                    <li class="cm-btn" tab="flaunt"  onclick="setPageType('flaunt');">招展</li>
+                </ul>
+            </div>
         </div>
     </div>
     <div class="content cm-hidden" id="show-content">
@@ -207,7 +228,7 @@
             <div class="cm-container">
                 <div class="container-hd">
                     <ul class="tab-list">
-                        <li class="cm-btn active" tab="hostIntroduce">展馆介绍</li>
+                        <li class="cm-btn active" tab="hostIntroduce">主办介绍</li>
                         <li class="cm-btn" tab="hostShows">展会项目</li>
                     </ul>
                 </div>

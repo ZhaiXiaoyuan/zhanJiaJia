@@ -15,7 +15,7 @@
         }
         &.active{
           a{
-            color: rgb(37, 155, 36);
+            color: #ff0000;
           }
         }
       }
@@ -47,11 +47,11 @@
           color: #333;
         }
         .desc{
-          color: rgb(37, 155, 36);
+          color: #ff0000;
           min-height: 44px;
         }
         .strong{
-          color: rgb(37, 155, 36);
+          color: #ff0000;
         }
         .item-list{
           >li{
@@ -75,9 +75,14 @@
       >li{
         display: inline-block;
         padding: 10px 20px;
+        background: #eaeaea;
         &.active{
-          color: rgb(37, 155, 36);
-          border-bottom: 1px solid rgb(37, 155, 36);
+          color: #fff;
+          background: #ff0000;
+         /* border-bottom: 1px solid #ff0000;*/
+        }
+        &:active{
+          transform: scale(0.95);
         }
       }
     }
@@ -126,7 +131,7 @@
               margin: auto;
             }
             &.active{
-              color: rgb(37, 155, 36);
+              color: #ff0000;
             }
           }
         }
@@ -140,7 +145,7 @@
             display: inline-block;
             width: 10px;
             height: 10px;
-            background: rgb(37, 155, 36);
+            background: #ff0000;
             border-radius: 50%;
           }
           .time{

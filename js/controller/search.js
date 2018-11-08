@@ -14,7 +14,7 @@ $(function () {
     var $yearRow=$('#year-row');
     var pRequest=utils.getRequest();
     var initPage=false;
-    var keyword=null;
+    var keyword='';
 
     /**
      *
@@ -47,7 +47,7 @@ $(function () {
         $('.page-name').html(pageName);
         //
         if(initPage){
-            keyword=null;
+            keyword='';
             selectedIndustry=null;
             selectedCountry=null;
             selectedYear=null;
@@ -153,7 +153,7 @@ $(function () {
      */
     var yearList=[];
     var nowYear=curDate.getFullYear();
-    for(var i=0;i<10;i++){
+    for(var i=-1;i<10;i++){
         var tem=nowYear+i;
         yearList.push({
             id:'year-'+tem,
@@ -195,7 +195,7 @@ $(function () {
             $monthList.html('').css('display','none');;
         }
     }
-    renderMonthList(monthList);
+    /*renderMonthList(monthList);*/
 
     /**
      * 渲染过滤条件
@@ -215,8 +215,8 @@ $(function () {
         if(selectedCountry){
             listDomStr+=' <li class="cm-btn" id="selected-'+selectedCountry.id+'" onclick="handleFilter(\''+selectedCountry.id+'\',\'country\')">'+selectedCountry.label+'<i class="cm-btn icon del-icon"></i></li>';
         }
-        if(selectedYear&&selectedMonth){
-            listDomStr+=' <li class="cm-btn" id="selected-'+selectedMonth.id+'" onclick="handleFilter(\''+selectedMonth.id+'\',\'year\')">'+selectedYear.value+'年'+selectedMonth.label+'<i class="cm-btn icon del-icon"></i></li>';
+        if(selectedYear){
+            listDomStr+=' <li class="cm-btn" id="selected-'+selectedYear.id+'" onclick="handleFilter(\''+selectedYear.id+'\',\'year\')">'+selectedYear.value+'年<i class="cm-btn icon del-icon"></i></li>';
         }
         $filterList.html(listDomStr);
         getList();
@@ -229,6 +229,7 @@ $(function () {
        $('#selected-'+id).remove();
         if(type=='keyword'){
             $('#keyword').val('');
+            search();
         }else if(type=='industry'){
             selectIndustry('');
         }else if(type=='country'){
@@ -323,7 +324,7 @@ $(function () {
             $yearList.find('li').removeClass('active');
             selectedYear=null;
         }
-        renderMonthList(monthList);
+      /*  renderMonthList(monthList);*/
         renderFilterList();
     }
 
@@ -409,7 +410,7 @@ $(function () {
                 timestamp:utils.genTimestamp(),
                 industry:selectedIndustry?selectedIndustry.value:null,
                 areaid:selectedCountry?selectedCountry.value:null,
-                month:selectedYear&&selectedMonth?selectedYear.value+'-'+selectedMonth.value:null,
+                month:selectedYear?selectedYear.value:null,
                 keyword:keyword,
                 'pager.pageSize':pager.pageSize,
                 'pager.pageNumber':pager.pageNumber
@@ -420,11 +421,12 @@ $(function () {
                     entryList=data.result;
                     var listDomStr='';
                     entryList.forEach(function (item,i) {
-                        listDomStr+=' <li><a href="detail.html?pageType=show&id='+item.id+'">' +
+                        listDomStr+=' <li><a href="detail.html?pageType=show&id='+item.id+'&keyword='+keyword+'">' +
                             '<img src="'+item.logopic+'">' +
                             '<div class="text-info">' +
                             '<p class="row title">'+item.name+'</p>' +
-                            '<p class="row desc strong">'+item.descr+'</p>' +
+                            '<p class="row">'+item.nameen+'</p>' +
+                            '<p class="row desc strong">'+utils.ellipsis(item.descr,110)+'</p>' +
                             '<ul class="row item-list"> <li>举办地点：<span class="strong">'+item.areaname+'</span></li> <li>行业：<span class="strong">'+item.industryLabel+'</span></li> <li>周期：'+item.period+'</li> </ul>' +
                             '<p class="row">会展时间：'+item.date+'</p>' +
                             '</div>' +
@@ -457,7 +459,7 @@ $(function () {
                     entryList=data.result;
                     var listDomStr='';
                     entryList.forEach(function (item,i) {
-                        listDomStr+=' <li><a href="detail.html?pageType=pavilion&id='+item.id+'">' +
+                        listDomStr+=' <li><a href="detail.html?pageType=pavilion&id='+item.id+'&keyword='+keyword+'">' +
                             '<img src="'+item.logopic+'">' +
                             '<div class="text-info">' +
                             '<p class="row title">'+item.pavchnname+'</p>' +
@@ -493,7 +495,7 @@ $(function () {
                     entryList=data.result;
                     var listDomStr='';
                     entryList.forEach(function (item,i) {
-                        listDomStr+=' <li><a href="detail.html?pageType=host&id='+item.id+'">' +
+                        listDomStr+=' <li><a href="detail.html?pageType=host&id='+item.id+'&keyword='+keyword+'">' +
                             '<img src="'+item.pic1+'">' +
                             '<div class="text-info">' +
                             '<p class="row title">'+item.name+'</p>' +
@@ -529,7 +531,7 @@ $(function () {
                     entryList=data.result;
                     var listDomStr='';
                     entryList.forEach(function (item,i) {
-                        listDomStr+=' <li><a href="detail.html?pageType=flaunt&id='+item.id+'">' +
+                        listDomStr+=' <li><a href="detail.html?pageType=flaunt&id='+item.id+'&keyword='+keyword+'">' +
                             '<img src="'+item.pic1+'">' +
                             '<div class="text-info">' +
                             '<p class="row title">'+item.name+'</p>' +

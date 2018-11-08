@@ -15,6 +15,9 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+html {
+  min-height: 100%;
+}
 body {
   font-size: 14px;
   background: #f6f6f6;
@@ -242,6 +245,7 @@ h6 {
 }
 .cm-btn {
   cursor: pointer;
+  user-select: none;
 }
 .cm-btn:active {
   opacity: 0.9;
@@ -340,7 +344,7 @@ h6 {
   align-items: center;
   padding: 0px 20px;
   height: 34px;
-  background: #259b24;
+  background: #ff0000;
 }
 .header .logo-text {
   font-size: 14px;
@@ -367,7 +371,7 @@ h6 {
   background: #fff;
 }
 .footer {
-  margin-top: 50px;
+  margin-top: 250px;
   padding: 15px;
   text-align: center;
   background: #fafafa;
@@ -416,7 +420,7 @@ h6 {
 }
 /*第三方组件样式覆盖*/
 .cm-date-selector .layui-laydate .layui-this {
-  background-color: #259b24 !important;
+  background-color: #ff0000 !important;
 }
 .first,
 .last {
@@ -433,7 +437,7 @@ h6 {
 .last:hover,
 .pagingUl li a:hover,
 .activP {
-  background-color: #259b24 !important;
+  background-color: #ff0000 !important;
 }
 .pager li {
   margin: 5px;
@@ -443,8 +447,8 @@ h6 {
 }
 .pager li.active,
 .pager li:hover {
-  background: #259b24;
-  border: 1px solid #259b24;
+  background: #ff0000;
+  border: 1px solid  #ff0000;
 }
 .pager li.active a,
 .pager li:hover a {
@@ -455,4 +459,67 @@ h6 {
   font-size: 14px;
   color: #555;
   text-align: center;
+}
+.cm-search-panel {
+  background: #fff;
+  padding-top: 30px;
+  text-align: center;
+}
+.cm-search-panel .row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cm-search-panel .input-box {
+  margin-left: 20px;
+  display: inline-block;
+}
+.cm-search-panel .input-box .wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.cm-search-panel .input-box .icon {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 10px;
+  margin: auto;
+}
+.cm-search-panel .input-box input {
+  width: 350px;
+  height: 34px;
+  border: 1px solid #ff0000;
+  padding: 0px 20px 0px 40px;
+  outline: none;
+}
+.cm-search-panel .input-box .btn {
+  display: inline-block;
+  height: 34px;
+  width: 78px;
+  text-align: center;
+  line-height: 34px;
+  background: #ff0000;
+  font-size: 16px;
+  color: #fff;
+}
+.cm-search-panel .nav-block {
+  margin-top: 30px;
+  border-bottom: 2px solid #ff0000;
+}
+.cm-search-panel .nav-block .tab-list {
+  text-align: left;
+}
+.cm-search-panel .nav-block .tab-list > li {
+  display: inline-block;
+  font-size: 18px;
+  color: #000;
+  font-weight: bold;
+  padding-bottom: 5px;
+}
+.cm-search-panel .nav-block .tab-list > li.active {
+  color: #ff0000;
+}
+.cm-search-panel .nav-block .tab-list > li + li {
+  margin-left: 100px;
 }

@@ -16,6 +16,9 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+html{
+  min-height: 100%;
+}
 body {
   font-size: 14px;
   background: #f6f6f6;
@@ -202,6 +205,7 @@ table {
 
 .cm-btn{
   cursor: pointer;
+  user-select:none;
 }
 .cm-btn:hover{
 
@@ -309,7 +313,7 @@ table {
   align-items: center;
   padding: 0px 20px;
   height: 34px;
-  background: rgb(37, 155, 36);
+  background: #ff0000;
   .logo-text{
     font-size: 14px;
     color: #fff;
@@ -339,7 +343,7 @@ table {
   }
 }
 .footer{
-  margin-top: 50px;
+  margin-top: 250px;
   padding: 15px;
   text-align: center;
   background: #fafafa;
@@ -390,7 +394,7 @@ table {
 
 /*第三方组件样式覆盖*/
 .cm-date-selector .layui-laydate .layui-this{
-  background-color: rgb(37, 155, 36) !important;
+  background-color: #ff0000 !important;
 }
 .first, .last{
   display: inline-block;
@@ -401,7 +405,7 @@ table {
   border-radius: 2px;
 }
 .prv:hover, .next:hover, .first:hover, .last:hover, .pagingUl li a:hover, .activP{
-  background-color: rgb(37, 155, 36) !important;
+  background-color: #ff0000 !important;
 }
 
 .pager{
@@ -411,8 +415,8 @@ table {
     border: 1px solid #ddd;
     padding: 8px 15px;
     &.active,&:hover{
-      background: rgb(37, 155, 36);
-      border: 1px solid  rgb(37, 155, 36);
+      background: #ff0000;
+      border: 1px solid  #ff0000;
       a{
         color: #fff;
       }
@@ -425,4 +429,68 @@ table {
   font-size: 14px;
   color: #555;
   text-align: center;
+}
+
+.cm-search-panel{
+  background: #fff;
+  padding-top: 30px;
+  text-align: center;
+  .row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .input-box{
+    margin-left: 20px;
+    display: inline-block;
+    .wrapper{
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    .icon{
+      position: absolute;
+      top:0px;
+      bottom: 0px;
+      left: 10px;
+      margin: auto;
+    }
+    input{
+      width: 350px;
+      height:34px;
+      border: 1px solid #ff0000;
+      padding: 0px 20px 0px 40px;
+      outline: none;
+    }
+    .btn{
+      display: inline-block;
+      height: 34px;
+      width: 78px;
+      text-align: center;
+      line-height: 34px;
+      background: #ff0000;
+      font-size: 16px;
+      color: #fff;
+    }
+  }
+  .nav-block{
+    margin-top: 30px;
+    border-bottom: 2px solid #ff0000;
+    .tab-list{
+      text-align: left;
+      >li{
+        display: inline-block;
+        font-size: 18px;
+        color: #000;
+        font-weight: bold;
+        padding-bottom: 5px;
+        &.active{
+          color: #ff0000;;
+        }
+        &+li{
+          margin-left: 100px;
+        }
+      }
+    }
+  }
 }

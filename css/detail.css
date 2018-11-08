@@ -16,7 +16,7 @@
   margin-right: 10px;
 }
 .detail .history-panel .history-list > li.active a {
-  color: #259b24;
+  color: #ff0000;
 }
 .detail .info-panel .entry {
   margin-top: 20px;
@@ -43,11 +43,11 @@
   color: #333;
 }
 .detail .info-panel .entry .text-info .desc {
-  color: #259b24;
+  color: #ff0000;
   min-height: 44px;
 }
 .detail .info-panel .entry .text-info .strong {
-  color: #259b24;
+  color: #ff0000;
 }
 .detail .info-panel .entry .text-info .item-list > li {
   display: inline-block;
@@ -68,10 +68,15 @@
 .detail .tab-panel .tab-list > li {
   display: inline-block;
   padding: 10px 20px;
+  background: #eaeaea;
 }
 .detail .tab-panel .tab-list > li.active {
-  color: #259b24;
-  border-bottom: 1px solid #259b24;
+  color: #fff;
+  background: #ff0000;
+  /* border-bottom: 1px solid #ff0000;*/
+}
+.detail .tab-panel .tab-list > li:active {
+  transform: scale(0.95);
 }
 .detail .tab-panel .tab-content {
   padding: 20px;
@@ -121,7 +126,7 @@
   margin: auto;
 }
 .detail .tab-panel .tab-content .time-filter .month-list > li.active {
-  color: #259b24;
+  color: #ff0000;
 }
 .detail .tab-panel .tab-content .entry-list {
   padding: 30px 0px;
@@ -134,7 +139,7 @@
   display: inline-block;
   width: 10px;
   height: 10px;
-  background: #259b24;
+  background: #ff0000;
   border-radius: 50%;
 }
 .detail .tab-panel .tab-content .entry-list > li .time {

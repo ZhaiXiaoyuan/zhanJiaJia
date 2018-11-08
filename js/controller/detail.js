@@ -5,12 +5,39 @@ $(function () {
     var pRequest=utils.getRequest();
     var pageType=pRequest.pageType;
     var id=pRequest.id;
+    var keyword=pRequest.keyword;
+    var $keyword=$('#keyword');
     var $content=$('#'+pageType+'-content');
     var detail=null;
     var $historyList=$('.history-list');
     var curDate=new Date();
     var selectedYear=null;
     var selectedMonth=null;
+
+    /**
+     *
+     */
+    if(keyword&&keyword!='undefined'){
+        $keyword.val(keyword);
+    }
+    /**
+     * 切换页面类型,show:会展,pavilion:展馆,host:主办,flaunt:招展
+     */
+    if(pageType){
+        $('.nav-block .tab-list li').removeClass('active');
+        $('.nav-block [tab='+pageType+']').addClass('active');
+    }
+    window.setPageType=function (value) {
+        window.location.href='search.html?pageType='+value;
+    }
+
+    /**
+     * 关键字搜索
+     */
+    window.search=function () {
+        keyword=$('#keyword').val();
+        window.location.href='search.html?pageType='+pageType+'&keyword='+keyword;
+    }
 
     //
     $content.removeClass('cm-hidden');
@@ -22,14 +49,19 @@ $(function () {
         api.getShowDetail({timestamp:utils.genTimestamp(),id:id},function (data) {
             if(data.status=='success'){
                 detail=data.message;
-                console.log('detail:',detail);
+                var agentStr='';
+                detail.agent.forEach(function (item,i) {
+                    agentStr+=(i>0?'&nbsp;&nbsp;':'')+item.agentname
+                })
                 $content.find('.info-panel .cm-container').html('<div class="entry">' +
                     '<img src="'+detail.logopic+'">' +
                     '<div class="text-info">' +
                     '<p class="row title">'+detail.name+'</p>' +
+                    '<p class="row">'+detail.nameen+'</p>' +
                     '<p class="row desc">'+detail.descr+'</p>' +
                     '<ul class="row item-list"> <li>举办地点：<span class="strong">'+detail.areaname+'</span></li> <li>行业：<span class="strong">'+detail.industryLabel+'</span></li> <li>周期：'+detail.period+'</li> </ul>' +
-                    '<p class="row">会展时间：'+detail.date+'</p>' +
+                    '<ul class="row item-list"> <li>举办展馆：<span>'+detail.pavilionname+'</span></li> <li>会展时间：<span>'+detail.date+'</span></li> <li>主办单位：'+detail.sponsorname+'</li> </ul>' +
+                    '<p class="row">代理商：'+agentStr+'</p>' +
                     '<p class="row">官网：<a href="http://'+detail.website+'">'+detail.website+'</a></p>' +
                     '</div> </div>');
                 //
@@ -108,7 +140,7 @@ $(function () {
         var params={
             timestamp:utils.genTimestamp(),
             id:id,
-            month:selectedYear&&selectedMonth?selectedYear.value+'-'+selectedMonth.value:null,
+            month:selectedYear?selectedYear.value:null,
         }
         api.getPavilionShowList(params,function (data) {
             if(data.status=='success'){
@@ -142,7 +174,7 @@ $(function () {
         label:'全部'
     }];
     var nowYear=curDate.getFullYear();
-    for(var i=0;i<10;i++){
+    for(var i=-1;i<10;i++){
         var tem=nowYear+i;
         yearList.push({
             id:'year-'+tem,
@@ -193,8 +225,14 @@ $(function () {
         }else{
             selectedYear=null;
         }
-        renderMonthList(monthList);
-        getPavilionShowList();
+     /*   renderMonthList(monthList);*/
+        if(pageType=='pavilion'){
+            getPavilionShowList();
+        }else if(pageType=='host'){
+            getHostShowList();
+        }else if(pageType=='flaunt'){
+            getFlauntShowList();
+        }
     }
     //选择月份
     window.selectMonth=function (id) {
@@ -259,7 +297,7 @@ $(function () {
         var params={
             timestamp:utils.genTimestamp(),
             id:id,
-            month:selectedYear&&selectedMonth?selectedYear.value+'-'+selectedMonth.value:null,
+            month:selectedYear?selectedYear.value:null,
         }
         api.getHostShowList(params,function (data) {
             if(data.status=='success'){
@@ -309,7 +347,7 @@ $(function () {
         var params={
             timestamp:utils.genTimestamp(),
             id:id,
-            month:selectedYear&&selectedMonth?selectedYear.value+'-'+selectedMonth.value:null,
+            month:selectedYear?selectedYear.value:null,
         }
         api.getFlauntShowList(params,function (data) {
             if(data.status=='success'){
@@ -326,7 +364,7 @@ $(function () {
     /**
      * tab控制
      */
-    var $tabList=$('.tab-list li');
+    var $tabList=$('.tab-panel .tab-list li');
     var $tabContentList=$('.tab-content');
     $tabList.click(function (event) {
         var $this=$(event.currentTarget);
