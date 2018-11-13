@@ -253,7 +253,7 @@
         ellipsis:function (txt,length) {
             var str = txt;
             length=length?length:100;
-            if(txt.leng>length){
+            if(txt.length>length){
                 return str.substr(0,length) + '...' ;
             }
             return txt;
