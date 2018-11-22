@@ -41,7 +41,7 @@ $(function () {
     }
 
     /*数据接口定义*/
-    var basicUrl='http://zpp.elecplus.tech/zppwxs/hm/';
+    var basicUrl='http://www.zjaja.cn/zppwxs/hm/';
     window.api={
         //公共基础数据获取
         getBasicData:function (data,callback) {
