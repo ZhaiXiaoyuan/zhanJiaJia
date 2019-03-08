@@ -26,7 +26,7 @@
 .detail .info-panel .entry img {
   float: left;
   width: 235px;
-  height: 180px;
+  height: 166px;
 }
 .detail .info-panel .entry .text-info {
   min-height: 180px;
@@ -49,11 +49,13 @@
 .detail .info-panel .entry .text-info .strong {
   color: #ff0000;
 }
+.detail .info-panel .entry .text-info .item-list {
+  margin-top: 0px !important;
+}
 .detail .info-panel .entry .text-info .item-list > li {
   display: inline-block;
-}
-.detail .info-panel .entry .text-info .item-list > li + li {
-  margin-left: 40px;
+  padding-top: 12px;
+  margin-right: 40px;
 }
 .detail .info-panel .entry + li {
   border-top: 1px solid #ddd;
